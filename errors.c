@@ -15,7 +15,8 @@
 void	not_found(char *parm)
 {
 	write(STDERR_FILENO, "pipex: ", 8);
-	write(STDERR_FILENO, parm, ft_strlen(parm));
+	if (parm && *parm)
+		write(STDERR_FILENO, parm, ft_strlen(parm));
 	write(STDERR_FILENO, ": command not found\n", 21);
 	exit(127);
 }
